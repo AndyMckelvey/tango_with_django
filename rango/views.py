@@ -3,10 +3,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    about_link = '<a href="/rango/about/">About</a>'
-    return HttpResponse(f"<h1>Rango says hey there partner!</h1><p>Go to the {about_link}</p>")
+    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
+    return render(request, 'rango/index.html', context=context_dict)
 
 
 def about(request):
-    about_link = '<a href="/rango/">Index</a>.'
-    return HttpResponse(f"<h1>Rango says here is the about page.</h1><p>Go to the {about_link}</p>")
+    return render(request, 'rango/about.html')
